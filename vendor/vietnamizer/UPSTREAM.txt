@@ -1,0 +1,4 @@
+https://github.com/fioenix/vietnamizer commit 1d118b5 (2026-10-22), v0.10.6, MIT. Copied: SKILL.md, LICENSE, TERMS.md, profiles/, references/. Not copied: jev/ runner, scripts, eval, specs, tests.
+Removed references/typesafe-advisor.md (it drives the Jev runner, which is not copied). In this skill, skip SKILL.md step 0 and the Jev section.
+
+Upstream files that this copy does not include, though the copied files refer to them: references/typesafe-advisor.md, README.md, calibration/, AGENTS.md, PRIVACY.md, CONTRIBUTING.md, SECURITY.md, .specify/, test cases MS01-MS14. See the upstream repository for them.
