@@ -7,7 +7,7 @@ description: Write Vietnamese, or translate English to Vietnamese, for tech text
 
 In short: pick the text type, write from the meaning, not word by word. Documents follow the STE-VI rules in [ste-vi.md](ste-vi.md): formal written Vietnamese, short sentences, active voice, no spoken words, English terms only as nouns. Interface and product copy follow VI-6 (Microsoft vi-VN voice: clear, friendly, short). Use the term packs in [terms/](terms/README.md) for every technical term; build a domain glossary first when the text has many terms that no pack has. Then do one edit pass with the vietnamizer patterns and run the checker until it prints OK.
 
-Files:
+Files (source: https://github.com/lagz0ne/vietnamese-it). If this skill folder has only SKILL.md, get the other files first: `git clone https://github.com/lagz0ne/vietnamese-it`, or read each file from `https://raw.githubusercontent.com/lagz0ne/vietnamese-it/main/<path>`.
 - [ste-vi.md](ste-vi.md): ASD-STE100 rules mapped to Vietnamese (keep, adapt, drop), must and default levels, rules VI-1 to VI-6, words to avoid, length limits.
 - [terms/](terms/README.md): term packs, on by default: `common.md` (work words), `tech.md` (interface, software, data, cloud, security, development, product, AI; from Microsoft Terminology), `systems.md` (platform, architecture, operations). Optional: `optional/adtech.md`. Your own names: a copy of `org-template.md`.
 - [tools/ste_vi_check.py](tools/ste_vi_check.py): checker. Must rules: 0 findings. Default rules: at least 80% of sentences pass.
