@@ -54,7 +54,7 @@ def main():
     found = Counter()
     for m in re.finditer(r"\b[A-Z][A-Z0-9]{1,}(?:/[A-Z0-9]+)?s?\b|\b[a-z]+[A-Z]\w+\b|\b[A-Z][a-z]+[A-Z]\w+\b|\b\w+(?:-\w+)+\b", text):
         found[m.group(0)] += mn
-    words = re.findall(r"[A-Za-z][A-Za-z'-]*", text)
+    words = re.findall(r"(?<![\wÀ-ỹ])[A-Za-z][A-Za-z'-]+(?![\wÀ-ỹ])", text)   # English words only (source text)
     for n in (2, 3):
         for i in range(len(words) - n + 1):
             gram = words[i:i + n]
