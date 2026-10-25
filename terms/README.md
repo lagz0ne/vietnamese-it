@@ -9,8 +9,9 @@ In short: every technical term has one Vietnamese form. Use it in all Vietnamese
 | Pack | Content |
 |---|---|
 | [common.md](common.md) | Everyday work words (team, owner, review, deploy, use) |
-| [it.md](it.md) | Platform and access, systems and operations, AI, data, licences and privacy |
-| [adtech.md](adtech.md) | Mobile app publishing, user acquisition, creatives, measurement, monetization, store and ad policy |
+| [tech.md](tech.md) | Default tech set: interface and actions, software and data, cloud and operations, security, development, product and business, AI. Mostly from the Microsoft Terminology Collection (mark M) |
+| [systems.md](systems.md) | Platform and access, architecture, team models, operations and observability, AI engineering, data and statistics, licences and privacy |
+| [optional/adtech.md](optional/adtech.md) | Off by default. Mobile app publishing, user acquisition, creatives, measurement, monetization, store and ad policy. Copy it to `terms/` to turn it on |
 | [org-template.md](org-template.md) | Template for your organization: names, tools, local terms |
 
 Modes:
@@ -18,13 +19,13 @@ Modes:
 - **keep + gloss**: write the English term. On the first use in a page or deck, add the gloss in brackets once: `creative (video, ảnh quảng cáo)`. Later uses: English only.
 - **vi**: write the Vietnamese form. On the first use you can add the English in brackets once, when readers know the English better.
 
-Sources for the Vietnamese forms: Google AdMob Vietnamese help and developer pages (marked G), Brands Vietnam (marked B), Vietnamese law texts (marked L). No mark = common Vietnamese word. Notes such as "readers take X as Y" come from blind reader tests (see [../EVALUATION.md](../EVALUATION.md)).
+Sources for the Vietnamese forms: Microsoft Terminology Collection, Vietnamese (marked M), Google Vietnamese interfaces and help pages, AdMob included (marked G), Brands Vietnam (marked B), Vietnamese law texts (marked L). No mark = common Vietnamese word. Notes such as "readers take X as Y" come from blind reader tests (see [../EVALUATION.md](../EVALUATION.md)).
 
-A term that is not in a pack: use the Vietnamese name from the vendor's own Vietnamese interface or help pages, if one exists; else keep English and list the term in the report. Do not coin a new Vietnamese word.
+A term that is not in a pack: build a domain pack with the glossary step in [../SKILL.md](../SKILL.md) section 2b, or for one term, use the vendor's own Vietnamese interface or help pages; else keep English and list the term in the report. Do not coin a new Vietnamese word.
 
 ## How the checker reads packs
 
-`tools/ste_vi_check.py` reads every `.md` file in this folder:
+`tools/ste_vi_check.py` reads every `.md` file in this folder (not in `optional/`, not `org-template.md`):
 - English words in table rows are allowed words (no "English word not in a pack" note).
 - A line that starts with `Gloss at first use:` lists terms that need a gloss in brackets at the first use (rule VI-2a). Example: `Gloss at first use: UA, CPI, MMP`.
 

@@ -31,6 +31,8 @@ Rules for a fair test:
 | 5 | Orders copied from English forms | VI-4 (strength ladder) | Judge on 22 instructions: new 12, old 6, tie 4. Strength changed: 1 and 1 |
 | 6 | Grammar that differs (passive, tense, negation, connectives) | VI-5 | Judge on 22 sentences: new 10, old 5, tie 7 (without the item that leaked into an example: new 9, old 5). "Sounds translated" items from 10 to 6 |
 | 7 | Full skill description written in Vietnamese with these rules | All | Manager "Có" 81 of 84 (96%); new staff 78 of 84 (93%), after 2 passes |
+| 9 | Retarget to tech (docs, system docs, UI and product copy) | VI-6, tech term pack, text types | 26 items. Judge, old skill against new: design note new 3, old 2; help steps new 2, old 1; UI strings old 4, new 0; product page old 3, new 1. Cause: the first VI-6a made writers add "của bạn", "chúng tôi". After the fix (round 10) |
+| 10 | Pronouns in copy; dialog titles; claim strength | VI-6a, VI-6c, VI-6h; "thời gian dùng thử" | 15 copy items: old 5, new 2, tie 8. Pronoun problems gone; the 5 losses: a wordy dialog title, "bản dùng thử" for the trial period, a weak claim copied from the rule example, a bare "kết nối". All 4 are fixed in the rules and terms; not tested again |
 | 8 | Native review of 22 example pairs | VI-2f, VI-3g, VI-3h, VI-4j, VI-5j, VI-5k; ladder words | 17 marked: 11 "Đạt", 6 "Chưa đạt". All 6 notes became rule changes |
 
 ## What the native review changed
@@ -51,4 +53,5 @@ Rules for a fair test:
 - Readers and judges are agent personas, not a panel of people. The native review is one person.
 - Samples are small (22 to 84 items per test). Read the numbers as direction, not as proof.
 - Length limits (30 and 38 âm tiết) come from ASD-STE100 word limits and one measured ratio. Tune them on your own texts.
-- Business and adtech texts were the test sources. Other fields need their own term pack and a new reader test.
+- Rounds 1 to 8 tested business and adtech texts; rounds 9 and 10 tested tech docs and copy. The copy rules (VI-6) did not yet beat the skill without them; treat VI-6 as a draft and test it on your own strings.
+- Other fields need their own term pack (SKILL.md section 2b) and a new reader test.

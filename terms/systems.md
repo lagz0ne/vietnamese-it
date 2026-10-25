@@ -1,17 +1,17 @@
 ---
-title: IT terms
-pack: it
+title: Systems terms
+pack: systems
 ---
 
-# IT terms
+# Systems terms
 
-In short: software, platform, operations, AI and data terms. Modes and rules: [README.md](README.md).
+In short: platform, access, architecture, operations, AI engineering and data terms for system documents. Modes and rules: [README.md](README.md).
 
 ## Platform and access
 
 | Term | Mode | Vietnamese |
 |---|---|---|
-| IdP, SSO, OIDC, SAML, SCIM, RBAC, ReBAC | keep | as is |
+| IdP, OIDC, SAML, SCIM, RBAC, ReBAC | keep | as is (SSO: see tech.md) |
 | Authn / authz | vi | xác thực / phân quyền |
 | Forward auth, Identity-aware proxy, Mesh VPN | keep | as is |
 | AI gateway, Virtual key | keep | as is |

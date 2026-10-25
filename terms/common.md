@@ -22,7 +22,7 @@ In short: everyday work words that English IT text uses. One Vietnamese form eac
 | budget | ngân sách |
 | scale (company) | mở rộng quy mô |
 | leaver | người nghỉ việc |
-| user (staff who use internal systems) | nhân viên (never "người dùng": that means app users) |
+| user (staff who use internal systems) | nhân viên, when the same text also has users of a product ("người dùng") |
 | user (of an app) | người dùng |
 | role | vai trò; first use: vai trò (tập hợp quyền giao cho một người) |
 | permission, access | quyền truy cập |
@@ -35,5 +35,5 @@ In short: everyday work words that English IT text uses. One Vietnamese form eac
 | dev team | nhóm phát triển phần mềm ("nhóm phát triển" alone is unclear: business development or product?) |
 | pass/fail | đạt hoặc không đạt |
 | seat (licence) | suất sử dụng phần mềm (seat); "seat owner" = người giữ suất sử dụng |
-| test (verb) | thử nghiệm, kiểm tra |
+| test (verb, general) | thử nghiệm, kiểm tra; software testing: kiểm thử (tech.md) |
 | run (a system) | vận hành |

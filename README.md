@@ -1,30 +1,40 @@
 # vietnamese-it
 
-Skill viết tiếng Việt trang trọng và dịch Anh - Việt cho văn bản công nghệ thông tin và kinh doanh số: trang nội bộ, slide, đặc tả, báo cáo, quy trình, giao diện.
+Skill viết tiếng Việt và dịch Anh - Việt cho văn bản công nghệ: tài liệu kỹ thuật, tài liệu hệ thống và nội dung sản phẩm (chuỗi giao diện, thông báo lỗi, trang giới thiệu tính năng).
 
-Skill này chuyển các quy tắc của ASD-STE100 (tiêu chuẩn tiếng Anh kỹ thuật giản lược) sang tiếng Việt, gọi là STE-VI. Skill có thêm 5 nhóm quy tắc riêng cho tiếng Việt, gói thuật ngữ, bước rà soát bằng vietnamizer và một bộ kiểm tra tự động.
+Tài liệu theo STE-VI: các quy tắc của ASD-STE100 (tiêu chuẩn tiếng Anh kỹ thuật giản lược) chuyển sang tiếng Việt. Nội dung giao diện theo giọng văn tiếng Việt của Microsoft: rõ, thân thiện, ngắn. Skill có sẵn bộ thuật ngữ công nghệ lấy từ Microsoft Terminology Collection, có bước xây dựng bảng thuật ngữ cho từng lĩnh vực, bước rà soát bằng vietnamizer và một bộ kiểm tra tự động.
+
+## Loại văn bản
+
+| Loại | Ví dụ | Quy tắc | Bộ kiểm tra |
+|---|---|---|---|
+| Tài liệu kỹ thuật | hướng dẫn, README, ghi chú phát hành | STE-VI, VI-1 đến VI-5 | `--tech` |
+| Tài liệu hệ thống | đặc tả, kiến trúc, runbook (hướng dẫn xử lý sự cố) | STE-VI, VI-1 đến VI-5 | `--tech` |
+| Văn bản cho quản lý | trang, slide, báo cáo | STE-VI, giải nghĩa mọi chữ viết tắt | mặc định |
+| Nội dung sản phẩm | nút, thông báo lỗi, màn hình hướng dẫn, trang tính năng | VI-6 | `--copy` |
 
 ## Nội dung
 
 | Tệp | Nội dung |
 |---|---|
 | [SKILL.md](SKILL.md) | Quy trình viết và dịch (tiếng Anh, cho tác tử AI đọc) |
-| [ste-vi.md](ste-vi.md) | 60 quy tắc ASD-STE100 chuyển sang tiếng Việt và 5 nhóm quy tắc VI-1 đến VI-5 |
-| [terms/](terms/README.md) | Gói thuật ngữ: từ công việc chung, công nghệ thông tin, ứng dụng di động và quảng cáo, mẫu cho tổ chức |
-| [tools/ste_vi_check.py](tools/ste_vi_check.py) | Bộ kiểm tra: đọc tệp .md, .txt, .html; in OK hoặc FAIL |
-| [examples.md](examples.md) | 22 ví dụ trước và sau khi sửa |
+| [ste-vi.md](ste-vi.md) | 60 quy tắc ASD-STE100 chuyển sang tiếng Việt và 6 nhóm quy tắc VI-1 đến VI-6 |
+| [terms/](terms/README.md) | Gói thuật ngữ: từ công việc chung, công nghệ, hệ thống; gói quảng cáo ứng dụng (tùy chọn); mẫu cho tổ chức |
+| [tools/](tools/) | Bộ kiểm tra; công cụ tìm thuật ngữ trong văn bản nguồn; công cụ tra tệp TBX |
+| [examples.md](examples.md) | 29 ví dụ trước và sau khi sửa |
 | [EVALUATION.md](EVALUATION.md) | Cách kiểm tra và kết quả |
 | [vendor/vietnamizer/](vendor/vietnamizer/SKILL.md) | Skill biên tập tiếng Việt của fioenix (giấy phép MIT) |
 
-## Năm nhóm quy tắc riêng cho tiếng Việt
+## Sáu nhóm quy tắc riêng cho tiếng Việt
 
 | Nhóm | Vấn đề | Ví dụ sau khi sửa |
 |---|---|---|
 | VI-1 | Tiếng Anh nêu rõ phạm vi, số và sở hữu. Tiếng Việt để ngữ cảnh mang các ý này | Các nhóm sử dụng chung hệ thống. |
-| VI-2 | Người đọc không hiểu câu: thiếu chủ thể, thiếu giải nghĩa | Lợi nhuận xấp xỉ bằng LTV (tổng doanh thu một người dùng mang lại) trừ CPI (chi phí cho một lượt cài). |
+| VI-2 | Người đọc không hiểu câu: thiếu chủ thể, thiếu giải nghĩa | Bật đăng nhập một lần (SSO) cho mọi không gian làm việc. |
 | VI-3 | Không có từ tương đương, câu giữ khung tiếng Anh | Số lượt tải cao nhất đạt khoảng 20 triệu trong một tháng. |
 | VI-4 | Câu chỉ dẫn và câu cấm dịch theo hình thức tiếng Anh | Mỗi dự án cần có báo cáo tuần. |
-| VI-5 | Ngữ pháp khác nhau: bị động, thì, phủ định, từ nối | Không tải được tệp. |
+| VI-5 | Ngữ pháp khác nhau: bị động, thì, phủ định, từ nối | Phiên bản v6 đã gỡ bỏ tính năng thống kê sử dụng có sẵn. |
+| VI-6 | Nội dung giao diện: đại từ thừa, thông báo lỗi, lời đề nghị | Không lưu được hình ảnh. |
 
 ## Cài đặt
 
@@ -40,17 +50,17 @@ Tác tử AI khác: cho tác tử đọc `SKILL.md` trước khi viết tiếng 
 
 ## Sử dụng
 
-1. Yêu cầu tác tử viết hoặc dịch sang tiếng Việt. Skill tự áp dụng văn phong, thuật ngữ và các bước dịch.
-2. Thêm tên riêng và thuật ngữ nội bộ: sao chép `terms/org-template.md` thành `terms/org.md`, rồi điền tên, công cụ và thuật ngữ.
-3. Kiểm tra một tệp:
+1. Yêu cầu tác tử viết hoặc dịch sang tiếng Việt. Skill tự chọn loại văn bản, văn phong, thuật ngữ và các bước dịch.
+2. Với lĩnh vực mới (thanh toán, y tế, game), xây dựng bảng thuật ngữ trước theo SKILL.md mục 2b. Công cụ `tools/term_candidates.py` liệt kê thuật ngữ chưa có trong gói. Công cụ `tools/tbx_lookup.py` tra tệp VIETNAMESE.tbx của Microsoft Terminology Collection (tải từ Microsoft).
+3. Thêm tên riêng và thuật ngữ nội bộ: sao chép `terms/org-template.md` thành `terms/org.md`, rồi điền tên, công cụ và thuật ngữ.
+4. Kiểm tra một tệp:
 
 ```
-python3 -I tools/ste_vi_check.py ban-dich.md --org "Công ty ABC"
+python3 -I tools/ste_vi_check.py ban-dich.md --tech
+python3 -I tools/ste_vi_check.py chuoi-giao-dien.md --copy
 ```
 
-Với văn bản cho người đọc kỹ thuật (README, hướng dẫn cài đặt), thêm `--tech` để cho phép mã và đường dẫn trong câu.
-
-Quy tắc Bắt buộc: 0 lỗi. Quy tắc Mặc định: ít nhất 80% số câu đạt.
+Quy tắc Bắt buộc: 0 lỗi. Quy tắc Mặc định: ít nhất 80% số câu đạt. Thêm `--org "Công ty ABC"` để kiểm tra cách nêu tên tổ chức.
 
 ## Kết quả kiểm tra
 
@@ -66,11 +76,11 @@ Mỗi nhóm quy tắc có một bài kiểm tra độc lập. Chi tiết trong [
 
 ## Nguồn
 
-ASD-STE100 Issue 9 (2025), RFC 2119, Microsoft Vietnamese Style Guide, Mona Baker (*In Other Words*), Vinay và Darbelnet, thuyết dịch diễn ý (Seleskovitch và Lederer), Cao Xuân Hạo (*Tiếng Việt: sơ thảo ngữ pháp chức năng*). Danh sách đầy đủ trong [sources.md](sources.md). Skill chỉ diễn giải tên quy tắc của ASD-STE100, không sao chép tiêu chuẩn.
+ASD-STE100 Issue 9 (2025), RFC 2119, Microsoft Vietnamese Style Guide, Microsoft Terminology Collection, Mona Baker (*In Other Words*), Vinay và Darbelnet, thuyết dịch diễn ý (Seleskovitch và Lederer), Cao Xuân Hạo (*Tiếng Việt: sơ thảo ngữ pháp chức năng*). Danh sách đầy đủ trong [sources.md](sources.md). Skill chỉ diễn giải tên quy tắc của ASD-STE100, không sao chép tiêu chuẩn.
 
 ## English
 
-A skill for formal Vietnamese writing and English to Vietnamese translation in IT and digital business. It adapts ASD-STE100 to Vietnamese (STE-VI), adds five Vietnamese rule groups found by native readers, ships term packs, a vietnamizer edit pass and a checker script. Install: clone into `~/.claude/skills/vietnamese-it`. Test method and numbers: [EVALUATION.md](EVALUATION.md).
+A skill for Vietnamese tech writing and English to Vietnamese translation: tech docs, system docs and product copy (UI strings, error messages, feature pages). Documents follow STE-VI (ASD-STE100 adapted to Vietnamese); copy follows the Microsoft vi-VN voice. It adds six Vietnamese rule groups found by native readers, ships a default tech term pack from the Microsoft Terminology Collection, a glossary-building step with two tools, a vietnamizer edit pass and a checker script. Install: clone into `~/.claude/skills/vietnamese-it`. Test method and numbers: [EVALUATION.md](EVALUATION.md).
 
 ## Giấy phép
 

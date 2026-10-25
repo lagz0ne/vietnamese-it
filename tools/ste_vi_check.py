@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 """STE-VI check for Vietnamese text (see ../ste-vi.md).
 
-Usage: python3 -I ste_vi_check.py <file.md|file.html|file.txt> [--org NAME]... [--tech] [--json]
+Usage: python3 -I ste_vi_check.py <file.md|file.html|file.txt> [--org NAME]... [--tech] [--copy] [--json]
 
 --org NAME   name of the organization that writes the text (rules VI-1a, VI-1b, VI-1d).
              Repeat for more names. "công ty" and "tổ chức" are always checked.
 --tech       readers are technical (README, how-to): code and paths in text are allowed (VI-2c off).
+--copy       interface and product copy (VI-6): "bạn", "Hãy", "Vui lòng" and "tôi" in labels allowed
+             (VI-4a, VI-4d, 5.3 and first person off); VI-6 checks on.
 
 Must rules (Bắt buộc): 0 findings.
 Default rules (Mặc định): at least 80% of sentences have no finding.
@@ -49,7 +51,8 @@ MUST = [
     ("VI-2b", "resource receives access", re.compile(W + r"(tài nguyên|hệ thống|dữ liệu)[^.,;:]{0,20}?nhận quyền" + E, re.I)),
     ("VI-2c", "code in text", re.compile(r'"[^"]*\s=\s[^"]*"|`[^`]+`')),
     ("5.3", "polite opener", re.compile(r"^(Vui lòng|Bạn hãy|Xin hãy)" + E, re.M)),
-    ("VI-4", "directive copied from English form", re.compile(W + r"(được yêu cầu|hãy chắc chắn|đảm bảo rằng|bảo đảm rằng|là không được phép|không bao giờ|bạn\s+(?:có thể|nên|cần|phải|hãy|không được)|chúng ta hãy|điều bạn)" + E, re.I)),
+    ("VI-4", "directive copied from English form", re.compile(W + r"(được yêu cầu|hãy chắc chắn|đảm bảo rằng|bảo đảm rằng|là không được phép|không bao giờ)" + E, re.I)),
+    ("VI-4d", "'bạn' or 'chúng ta' in a document", re.compile(W + r"(bạn\s+(?:có thể|nên|cần|phải|hãy|không được)|chúng ta hãy|điều bạn)" + E, re.I)),
     ("VI-4a", "Hãy or Vui lòng opens a sentence", re.compile(r"(?:^|[.!?:]\s+)(Hãy|Vui lòng|Xin vui lòng)" + E, re.M)),
     ("VI-5a", "được with a bad event", re.compile(W + r"được\s+(cấm|từ chối|phạt|tạm khóa|khóa|đình chỉ|chặn|gỡ bỏ|thu hồi|loại bỏ|tạm ngưng|hạn chế)" + E, re.I)),
     ("VI-5f", "title case heading", re.compile(r"^#{1,4}\s+[A-ZĐÀ-Ỹ]\S*\s+[A-ZĐÀ-Ỹ]\S*\s+[A-ZĐÀ-Ỹ]", re.M)),
@@ -72,10 +75,19 @@ DEFAULT = [
     ("VI-5c", "verb + thất bại", re.compile(W + r"(lưu|tải|gửi|đăng nhập|kết nối|cài đặt|xuất bản|triển khai|cập nhật)\s+[^.,;:]{0,25}?thất bại" + E, re.I)),
     ("VI-5h", "English relative clause", re.compile(W + r"(nơi mà|cái mà|điều mà|người mà|điều này là)" + E, re.I)),
     ("VI-5j", "repeated 'thì' in one sentence", re.compile(W + r"thì\s[^.!?]{1,60}?\sthì" + E, re.I)),
-    ("VI-5k", "'dùng' as a verb (use 'sử dụng')", re.compile(r"(?<!người )(?<![\wÀ-ỹ])(?<!sử )dùng(?![\wÀ-ỹ])", re.I)),
+    ("VI-5k", "'dùng' as a verb (use 'sử dụng')", re.compile(r"(?<!người )(?<![\wÀ-ỹ])(?<!sử )dùng(?![\wÀ-ỹ])(?!\s+thử)", re.I)),
     ("VI-4j", "ban with 'để' read as purpose", re.compile(r"(?:^|[.!?:]\s+)Không\s[^.!?]{1,50}?\sđể\s", re.M)),
     ("VI-1e", "'mọi/mỗi' with 'dùng chung'", re.compile(W + r"((mọi|tất cả|mỗi)\s+[^.,;:]{1,15}?\s+dùng chung|dùng chung cho (mọi|tất cả))" + E, re.I)),
+    ("VI-6c", "'không thành công' (use 'Không ... được')", re.compile(W + r"[\wÀ-ỹ]+(\s+[\wÀ-ỹ]+)?\s+không thành công" + E, re.I)),
     ("VI-1c", "3+ 'một' in one sentence", re.compile(r"(?:" + W + r"một" + E + r"[^.!?]*){3,}", re.I)),
+]
+
+COPY_OFF = {"VI-4a", "VI-4d", "5.3", "first person"}
+COPY_EXTRA = [
+    ("VI-6d", "'Vui lòng đợi/chờ' (use 'Xin chờ')", re.compile(W + r"vui lòng\s+(đợi|chờ)" + E, re.I)),
+    ("VI-6e", "old or too formal word", wre(["mã định danh", "nhập vào", "theo các bước sau đây", "tải về không thành công"])),
+    ("VI-6b", "'Hủy bỏ' as a command (use 'Hủy')", re.compile(r"^\s*Hủy bỏ\s*$", re.M)),
+    ("VI-6a", "pronoun the string does not need", re.compile(W + r"(của bạn|nhóm bạn|chúng tôi đang)" + E, re.I)),
 ]
 
 PROC_VERBS = ("Mở", "Chọn", "Nhập", "Gửi", "Kiểm tra", "Thêm", "Xóa", "Đọc", "Viết", "Sử dụng", "Cài",
@@ -193,11 +205,12 @@ def first_use_gloss(text, gloss_first):
     return out
 
 
-def check(path, orgs=(), tech=False):
+def check(path, orgs=(), tech=False, copy=False):
     lines, is_html = load_text(path)
     allowed, gloss_first = load_packs()
-    must_rules = [r for r in MUST if not (tech and r[0] == "VI-2c")]
-    default_rules = DEFAULT + org_rules(list(orgs))
+    must_rules = [r for r in MUST if not (tech and r[0] == "VI-2c")
+                  and not (copy and (r[0] in COPY_OFF or r[1] in COPY_OFF))]
+    default_rules = DEFAULT + org_rules(list(orgs)) + (COPY_EXTRA if copy else [])
     must, default, notes = [], [], []
     n_sent = 0
     bad_sent = 0
@@ -244,7 +257,7 @@ def main():
         sys.exit(2)
     args = sys.argv[1:]
     orgs = [args[i + 1] for i, a in enumerate(args[:-1]) if a == "--org"]
-    res = check(args[0], orgs, "--tech" in args)
+    res = check(args[0], orgs, "--tech" in args, "--copy" in args)
     if "--json" in sys.argv:
         print(json.dumps(res, ensure_ascii=False, indent=1))
     else:

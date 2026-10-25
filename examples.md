@@ -4,7 +4,7 @@ title: Examples
 
 # Examples
 
-In short: before and after pairs for each rule group. Ids VD01 to VD22 match the ids that the rules in [ste-vi.md](ste-vi.md) cite. Native readers marked each pair; the "after" forms are the versions they accepted or the fixes from their notes.
+In short: before and after pairs for each rule group. Ids VD01 to VD29 match the ids that the rules in [ste-vi.md](ste-vi.md) cite. Native readers marked each pair; the "after" forms are the versions they accepted or the fixes from their notes.
 
 ## Rule groups
 
@@ -47,3 +47,17 @@ In short: before and after pairs for each rule group. Ids VD01 to VD22 match the
 | VD20 | keep + gloss at first use | creative (video, ảnh quảng cáo) |
 | VD21 | Vietnamese first, English in brackets | sở hữu trí tuệ (IP) |
 | VD22 | vendor's Vietnamese interface | Interstitial: quảng cáo xen kẽ |
+
+## Interface and product copy (VI-6)
+
+Source: Microsoft Vietnamese Style Guide examples.
+
+| Id | English | Before | After | Rule |
+|---|---|---|---|---|
+| VD23 | Image save failed. | Lưu hình ảnh thất bại. | Không lưu được hình ảnh. | VI-6c |
+| VD24 | Failed to download | Tải về không thành công | Không tải được | VI-6c, VI-6e |
+| VD25 | Please wait | Vui lòng đợi | Xin chờ | VI-6d |
+| VD26 | Cancel (button) | Hủy bỏ | Hủy | VI-6b |
+| VD27 | Bad, bad server. No donut for you. | Máy chủ tồi. Không có bánh rán cho bạn! | Máy chủ đang gặp lỗi. Vui lòng thử lại sau. | VI-6g |
+| VD28 | If you still have problems | Nếu bạn vẫn còn sự cố | Nếu còn sự cố | VI-6f |
+| VD29 | Would you like to continue? | Người dùng có muốn tiếp tục không? | Bạn có muốn tiếp tục không? | VI-6a |
